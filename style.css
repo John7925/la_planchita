@@ -1,0 +1,486 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f9fbfd;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* HEADER */
+header {
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-container img {
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.logo-container span {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0077b6;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 18px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #0077b6;
+}
+
+/* HERO SECTION */
+.hero {
+    background: linear-gradient(rgba(0, 119, 182, 0.85), rgba(3, 4, 94, 0.85)), url('https://images.unsplash.com/photo-1545173168-9f1947eebb7f?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-whatsapp {
+    background-color: #25d366;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    transition: background 0.3s;
+}
+
+.btn-whatsapp:hover {
+    background-color: #20ba5a;
+}
+
+/* SECCIONES COMUNES */
+section {
+    padding: 60px 5%;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2rem;
+    color: #03045e;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* SERVICIOS Y PROCESO */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+    text-align: left;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.service-card h3 {
+    padding: 15px 15px 5px 15px;
+    font-size: 1.2rem;
+    color: #0077b6;
+}
+
+.service-card p {
+    padding: 0 15px 20px 15px;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* PROMOCIONES */
+.promotions {
+    background-color: #f0f7ff;
+}
+
+.promo-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.promo-active {
+    border-left: 5px solid #0077b6;
+    text-align: left;
+}
+
+.promo-active h3 {
+    color: #0077b6;
+    margin-bottom: 10px;
+}
+
+.promo-none {
+    color: #777;
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+/* NOSOTROS */
+.about {
+    background-color: #eef4f8;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-box {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.about-box i {
+    font-size: 2.5rem;
+    color: #0077b6;
+    margin-bottom: 15px;
+}
+
+.about-box h3 {
+    margin-bottom: 15px;
+    color: #03045e;
+}
+
+.about-box ul {
+    list-style: none;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.about-box ul li {
+    margin-bottom: 8px;
+    color: #555;
+}
+
+/* FORMULARIO RECOLECCIÓN */
+.pickup-section {
+    background: linear-gradient(135deg, #03045e, #0077b6);
+    color: white;
+}
+
+.pickup-section h2 {
+    color: white;
+}
+
+.pickup-section .section-subtitle {
+    color: #caf0f8;
+}
+
+.pickup-box {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    color: #333;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.btn-enviar-wa {
+    background-color: #25d366;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-enviar-wa:hover {
+    background-color: #20ba5a;
+}
+
+/* UBICACIÓN Y HORARIOS */
+.info-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.schedule-box, .map-box {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: left;
+}
+
+.schedule-box h3, .map-box h3 {
+    margin-bottom: 20px;
+    color: #03045e;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.schedule-box ul {
+    list-style: none;
+}
+
+.schedule-box li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    color: #555;
+}
+
+.address-info {
+    margin-top: 20px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.btn-map-link {
+    background-color: #0077b6;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.map-responsive iframe {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* FOOTER */
+footer {
+    background-color: #03045e;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.footer-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.footer-content p {
+    color: #adb5bd;
+    margin-bottom: 20px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.social-icons a {
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.social-icons a:hover {
+    background-color: #0077b6;
+}
+
+.legal-links {
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.legal-links a {
+    color: #caf0f8;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.legal-links a:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+/* BOTÓN FLOTANTE WHATSAPP */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 1001;
+    transition: transform 0.3s;
+}
+
+.floating-whatsapp:hover {
+    transform: scale(1.1);
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 30px;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 12px;
+    position: relative;
+    text-align: left;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #000;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    nav ul {
+        gap: 10px;
+        font-size: 0.85rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
