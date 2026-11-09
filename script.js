@@ -1,98 +1,139 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // 1. Respaldo Automático de Imágenes (Fallback sin bucles de carga)
-    const images = document.querySelectorAll("img.fallback-img");
-    images.forEach(img => {
-        img.onerror = function() {
-            const defaultSrc = img.getAttribute("data-default");
-            if (defaultSrc && img.src !== defaultSrc) {
-                img.src = defaultSrc;
-            }
-        };
+document.addEventListener("DOMContentLoaded", () => {
+    const NUMERO_WHATSAPP = "525636705013";
+
+    // ========================================================
+    // 1. SISTEMA DE SUSTITUCIÓN VISUAL DE IMÁGENES (Cliente > Defaul)
+    // ========================================================
+    const imagenesDinamicas = document.querySelectorAll("img.img-dinamica");
+    
+    imagenesDinamicas.forEach((img) => {
+        const nombreCliente = img.getAttribute("data-cliente");
+        if (nombreCliente) {
+            const rutaCliente = `images/images-cliente/${nombreCliente}`;
+            const verificador = new Image();
+            
+            // Si la imagen en la carpeta del cliente existe, sustituye la visual
+            verificador.onload = () => {
+                img.src = rutaCliente;
+            };
+            // Si no existe, el navegador ignora la acción y se queda la de images-defaul
+            verificador.src = rutaCliente;
+        }
     });
 
-    // 2. Sistema de Promociones Mensuales Dinámicas
-    const fechaActual = new Date();
-    const mesActual = fechaActual.getMonth(); 
-
-    const promocionesMes = {
-        // Ejemplo Noviembre (Mes 10)
-        10: {
-            titulo: "¡Especial de Temporada en Planchado!",
-            descripcion: "Este mes tráenos tus abrigos y trajes con un 10% de descuento en el planchado por pieza."
-        },
+    // 1.1 Sustitución dinámica del fondo Hero (hero.jpg)
+    const heroVerificador = new Image();
+    heroVerificador.onload = () => {
+        const heroSection = document.querySelector('.hero');
+        if (heroSection) {
+            // Mantiene el filtro oscuro y cambia solo la imagen de fondo si el cliente subió una nueva
+            heroSection.style.backgroundImage = "linear-gradient(rgba(27, 73, 101, 0.88), rgba(44, 62, 80, 0.88)), url('images/images-cliente/hero.jpg')";
+        }
     };
+    heroVerificador.src = "images/images-cliente/hero.jpg";
 
-    const promoContainer = document.getElementById("promoContainer");
-    if (promocionesMes[mesActual]) {
-        promoContainer.innerHTML = `
-            <div class="promo-active">
-                <h3><i class="fas fa-tag"></i> ${promocionesMes[mesActual].titulo}</h3>
-                <p>${promocionesMes[mesActual].descripcion}</p>
-            </div>
-        `;
-    } else {
-        promoContainer.innerHTML = `
-            <div class="promo-none">
-                <i class="fas fa-hourglass-half"></i> Próximamente nuevas promociones y descuentos especiales para ti.
-            </div>
-        `;
+
+    // ========================================================
+    // 2. GESTIÓN ACCESIBLE DE MODALES LEGALES
+    // ========================================================
+    let lastFocusedElement = null;
+
+    function abrirModal(idModal) {
+        const modal = document.getElementById(idModal);
+        if (!modal) return;
+
+        lastFocusedElement = document.activeElement;
+        modal.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+
+        const closeBtn = modal.querySelector(".close-modal");
+        if (closeBtn) closeBtn.focus();
+    }
+
+    function cerrarModal(modal) {
+        if (!modal) return;
+        modal.classList.remove("is-open");
+        document.body.style.overflow = "";
+
+        if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+            lastFocusedElement.focus();
+            lastFocusedElement = null;
+        }
+    }
+
+    document.querySelectorAll("[data-modal]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+            abrirModal(btn.dataset.modal);
+        });
+    });
+
+    document.querySelectorAll(".modal").forEach((modal) => {
+        const closeBtn = modal.querySelector(".close-modal");
+        if (closeBtn) {
+            closeBtn.addEventListener("click", () => cerrarModal(modal));
+        }
+
+        modal.addEventListener("click", (event) => {
+            if (event.target === modal) {
+                cerrarModal(modal);
+            }
+        });
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            const openModal = document.querySelector(".modal.is-open");
+            if (openModal) {
+                cerrarModal(openModal);
+            }
+        }
+    });
+
+
+    // ========================================================
+    // 3. VALIDACIÓN Y ENVÍO DE FORMULARIO POR WHATSAPP
+    // ========================================================
+    const form = document.getElementById("formRecoleccion");
+    const formError = document.getElementById("formError");
+
+    if (form) {
+        form.addEventListener("submit", (event) => {
+            event.preventDefault();
+            formError.textContent = "";
+
+            const nombre = document.getElementById("nombre").value.trim();
+            const telefono = document.getElementById("telefono").value.trim();
+            const direccion = document.getElementById("direccion").value.trim();
+            const referencias = document.getElementById("referencias").value.trim() || "Ninguna";
+            const servicio = document.getElementById("servicio").value;
+
+            if (!nombre || !telefono || !direccion) {
+                formError.textContent = "Por favor completa tu nombre, teléfono y dirección.";
+                return;
+            }
+
+            const digitosTelefono = telefono.replace(/\D/g, "");
+            if (digitosTelefono.length < 10) {
+                formError.textContent = "Ingresa un número telefónico válido de al menos 10 dígitos.";
+                document.getElementById("telefono").focus();
+                return;
+            }
+
+            const mensaje =
+                `Hola, *La Planchita*. Deseo solicitar una recolección a domicilio:\n\n` +
+                `*Nombre:* ${nombre}\n` +
+                `*Teléfono:* ${telefono}\n` +
+                `*Dirección:* ${direccion}\n` +
+                `*Referencias:* ${referencias}\n` +
+                `*Servicio:* ${servicio}`;
+
+            const url = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
+            const nuevaVentana = window.open(url, "_blank", "noopener,noreferrer");
+
+            // Respaldo para navegadores móviles que bloquean ventanas emergentes
+            if (!nuevaVentana) {
+                window.location.href = url;
+            }
+        });
     }
 });
-
-// 3. Envío de Formulario por WhatsApp
-function enviarWhatsApp(event) {
-    event.preventDefault();
-
-    const nombre = document.getElementById("nombre").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const telefono = document.getElementById("telefono").value.trim();
-    const detalles = document.getElementById("detalles").value.trim();
-
-    const numeroWhatsApp = "525636705013";
-
-    const mensaje = `Hola, me gustaría solicitar recolección de ropa para *La Planchita*:%0A` +
-                    `- *Nombre:* ${nombre}%0A` +
-                    `- *Email:* ${email}%0A` +
-                    `- *Teléfono:* ${telefono}%0A` +
-                    `- *Detalles/Prendas:* ${detalles}`;
-
-    const url = `https://wa.me/${numeroWhatsApp}?text=${mensaje}`;
-    window.open(url, '_blank');
-}
-
-// 4. Modales Legales
-function abrirModal(tipo) {
-    const modal = document.getElementById("legalModal");
-    const modalBody = document.getElementById("modalBody");
-
-    if (tipo === 'terminos') {
-        modalBody.innerHTML = `
-            <h2>Términos y Condiciones</h2>
-            <p style="margin-top: 15px;">Bienvenido a <strong>La Planchita</strong>. Al utilizar nuestros servicios de planchado profesional en Peralvillo, aceptas los siguientes términos:</p>
-            <ul style="margin-left: 20px; margin-top: 10px; color: #555;">
-                <li>La revisión de prendas se realiza al momento de la recepción para detectar detalles previos.</li>
-                <li>No nos hacemos responsables por artículos dejados en las bolsas de las prendas.</li>
-                <li>Los plazos de entrega estándar y urgentes se comunican de acuerdo con el volumen de ropa.</li>
-            </ul>
-        `;
-    } else if (tipo === 'privacidad') {
-        modalBody.innerHTML = `
-            <h2>Política de Privacidad</h2>
-            <p style="margin-top: 15px;">En <strong>La Planchita</strong> protegemos tus datos personales (nombre, teléfono y correo electrónico) recabados mediante nuestros formularios de contacto y WhatsApp.</p>
-            <p style="margin-top: 10px; color: #555;">Dicha información es utilizada única y exclusivamente para gestionar la recolección, seguimiento y entrega de tus servicios de planchado, sin compartir datos con terceros.</p>
-        `;
-    }
-
-    modal.style.display = "block";
-}
-
-function cerrarModal() {
-    document.getElementById("legalModal").style.display = "none";
-}
-
-window.onclick = function(event) {
-    const modal = document.getElementById("legalModal");
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}

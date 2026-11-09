@@ -4,626 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Planchita | Planchado y Cuidado Profesional de Prendas</title>
-    <!-- Importar iconos oficiales de FontAwesome para logos corporativos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --color-primary: #1B4965;    /* Azul textil profesional */
-            --color-secondary: #62B6CB;  /* Azul claro / Frescura */
-            --color-dark: #2C3E50;       /* Texto principal */
-            --color-light: #F4F8F9;      /* Fondo general */
-            --color-white: #FFFFFF;
-            --color-whatsapp: #25D366;   /* Verde oficial WhatsApp */
-            --color-facebook: #1877F2;   /* Azul oficial Facebook */
-            --color-maps: #EA4335;       /* Rojo oficial Maps */
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: var(--color-dark);
-            background-color: var(--color-light);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
-
-        /* Header / Navegación Corporativa */
-        header {
-            background-color: var(--color-white);
-            color: var(--color-dark);
-            padding: 0.8rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            flex-wrap: wrap;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo-container img {
-            height: 48px;
-            width: auto;
-            max-width: 150px;
-            object-fit: contain;
-        }
-
-        .logo-container h2 {
-            margin: 0;
-            font-size: 1.3rem;
-            color: var(--color-primary);
-            letter-spacing: 0.5px;
-        }
-
-        nav {
-            display: flex;
-            gap: 1.2rem;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        nav a {
-            color: var(--color-dark);
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-
-        nav a:hover {
-            color: var(--color-primary);
-        }
-
-        /* Sección Hero */
-        .hero {
-            background: linear-gradient(rgba(27, 73, 101, 0.88), rgba(44, 62, 80, 0.88)), url('images/images-defaul/hero.jpg') center/cover no-repeat;
-            color: var(--color-white);
-            text-align: center;
-            padding: 5rem 1.5rem;
-        }
-
-        .hero-logo {
-            max-width: 160px;
-            height: auto;
-            margin-bottom: 1.5rem;
-            filter: drop-shadow(0 6px 15px rgba(0,0,0,0.35));
-        }
-
-        .hero-brand {
-            font-size: 2.8rem;
-            color: var(--color-white);
-            margin-bottom: 0.5rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
-
-        .hero h1 {
-            font-size: 1.6rem;
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-            color: var(--color-secondary);
-        }
-
-        .hero p {
-            font-size: 1.15rem;
-            max-width: 750px;
-            margin: 0 auto;
-            color: #E2ECF2;
-        }
-
-        /* Contenedor Principal */
-        .container {
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 1.5rem;
-        }
-
-        .seccion-titulo {
-            text-align: center;
-            color: var(--color-primary);
-            font-size: 2.1rem;
-            margin-bottom: 2.5rem;
-            position: relative;
-        }
-
-        .seccion-titulo::after {
-            content: '';
-            display: block;
-            width: 70px;
-            height: 4px;
-            background-color: var(--color-secondary);
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
-
-        /* Cuadrícula de Servicios */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .servicio-card {
-            background: var(--color-white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-top: 4px solid var(--color-secondary);
-        }
-
-        .servicio-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        }
-
-        .servicio-card img {
-            width: 100%;
-            height: 210px;
-            object-fit: cover;
-            object-position: center;
-            background-color: #E2ECF2;
-        }
-
-        .servicio-card .content {
-            padding: 1.8rem;
-        }
-
-        .servicio-card h3 {
-            color: var(--color-primary);
-            margin-top: 0;
-            font-size: 1.25rem;
-        }
-
-        .servicio-card p {
-            color: #555;
-            font-size: 0.95rem;
-            margin-bottom: 0;
-            text-align: justify;
-        }
-
-        /* --- SECCIÓN DE PRECIOS Y TARIFAS --- */
-        .precios-container {
-            background: var(--color-white);
-            padding: 3rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            margin-bottom: 3rem;
-            border-top: 4px solid var(--color-primary);
-        }
-
-        .precios-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .precio-tabla-wrapper h3 {
-            color: var(--color-primary);
-            font-size: 1.25rem;
-            margin-top: 0;
-            margin-bottom: 1rem;
-            border-bottom: 2px solid var(--color-secondary);
-            padding-bottom: 0.5rem;
-        }
-
-        .tabla-precios {
-            width: 100%;
-            border-collapse: collapse;
-            text-align: left;
-            font-size: 0.95rem;
-        }
-
-        .tabla-precios th, .tabla-precios td {
-            padding: 0.85rem 1rem;
-            border-bottom: 1px solid #E5E7EB;
-        }
-
-        .tabla-precios th {
-            background-color: var(--color-light);
-            color: var(--color-primary);
-            font-weight: 600;
-        }
-
-        .tabla-precios td:last-child {
-            text-align: right;
-            font-weight: 600;
-            color: var(--color-primary);
-        }
-
-        .tabla-precios tr:hover {
-            background-color: #F9FAFB;
-        }
-
-        .precio-nota {
-            margin-top: 1.5rem;
-            font-size: 0.9rem;
-            color: #6B7280;
-            background-color: var(--color-light);
-            padding: 1rem;
-            border-radius: 8px;
-            border-left: 3px solid var(--color-secondary);
-            text-align: justify;
-        }
-
-        /* Secciones informativas adicionales */
-        .info-section {
-            background: var(--color-white);
-            padding: 3rem;
-            border-radius: 12px;
-            margin-bottom: 3rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-        }
-
-        .nosotros-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .nosotros-card {
-            background: var(--color-light);
-            padding: 1.8rem;
-            border-radius: 10px;
-            border-left: 4px solid var(--color-secondary);
-        }
-
-        .nosotros-card h4 {
-            color: var(--color-primary);
-            margin-top: 0;
-            margin-bottom: 0.8rem;
-            font-size: 1.1rem;
-        }
-
-        .promo-box {
-            background: linear-gradient(135deg, var(--color-secondary), var(--color-primary));
-            color: var(--color-white);
-            padding: 2.5rem;
-            border-radius: 12px;
-            text-align: center;
-            margin-bottom: 3rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        .promo-box h3 {
-            margin-top: 0;
-            font-size: 1.8rem;
-        }
-
-        /* Sección de Recolección y Contacto Corporativo */
-        .recoleccion-container {
-            background: var(--color-white);
-            padding: 3rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
-            margin-bottom: 3rem;
-            border-top: 4px solid var(--color-primary);
-        }
-
-        .recoleccion-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 2.5rem;
-            align-items: start;
-        }
-
-        .form-group {
-            margin-bottom: 1.4rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--color-primary);
-        }
-
-        .form-group input, .form-group textarea, .form-group select {
-            width: 100%;
-            padding: 0.85rem;
-            border: 1px solid #D1D5DB;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-family: inherit;
-            box-sizing: border-box;
-            background-color: #F9FAFB;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
-            outline: none;
-            border-color: var(--color-primary);
-            background-color: #FFF;
-            box-shadow: 0 0 0 3px rgba(27, 73, 101, 0.1);
-        }
-
-        .btn-enviar {
-            background-color: var(--color-whatsapp);
-            color: white;
-            border: none;
-            padding: 1rem 1.5rem;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 8px;
-            cursor: pointer;
-            width: 100%;
-            transition: background 0.2s, transform 0.1s;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
-        }
-
-        .btn-enviar:hover {
-            background-color: #1EBE5D;
-            transform: translateY(-1px);
-        }
-
-        .cobertura-info {
-            background: var(--color-light);
-            padding: 1.8rem;
-            border-radius: 10px;
-            border: 1px dashed var(--color-secondary);
-            margin-bottom: 2rem;
-        }
-
-        .cobertura-info h4 {
-            color: var(--color-primary);
-            margin-top: 0;
-            margin-bottom: 0.8rem;
-        }
-
-        /* --- BOTONES DE REDES SOCIALES PROFESIONALES (LOGOS OFICIALES) --- */
-        .social-channels-card {
-            background: var(--color-light);
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid #E5E7EB;
-            text-align: center;
-        }
-
-        .social-channels-card h4 {
-            color: var(--color-primary);
-            margin-top: 0;
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        .social-channels-card p {
-            font-size: 0.9rem;
-            color: #6B7280;
-            margin-bottom: 1.5rem;
-        }
-
-        .social-circles-wrapper {
-            display: flex;
-            justify-content: center;
-            gap: 1.2rem;
-            align-items: center;
-        }
-
-        .pro-circle-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 22px;
-            text-decoration: none;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.12);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
-        }
-
-        .pro-circle-btn:hover {
-            transform: scale(1.12);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-        }
-
-        .bg-wa { background-color: var(--color-whatsapp); }
-        .bg-fb { background-color: var(--color-facebook); }
-        .bg-map { background-color: var(--color-maps); }
-
-        /* Botón flotante moderno de WhatsApp */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 30px;
-            right: 30px;
-            background-color: var(--color-whatsapp);
-            color: #FFF;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.12);
-        }
-
-        /* Estilos para Modales Legales Profesionales */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.6);
-            padding: 2rem 1rem;
-        }
-
-        .modal-content {
-            background-color: var(--color-white);
-            margin: 5% auto;
-            padding: 2.5rem;
-            border-radius: 12px;
-            max-width: 800px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            position: relative;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-
-        .close-modal {
-            color: #aaa;
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-
-        .close-modal:hover {
-            color: var(--color-primary);
-        }
-
-        .modal-content h3 {
-            color: var(--color-primary);
-            margin-top: 0;
-        }
-
-        .modal-content h4 {
-            color: var(--color-dark);
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .modal-content p, .modal-content li {
-            font-size: 0.95rem;
-            color: #4B5563;
-            text-align: justify;
-        }
-
-        /* Footer / Legales Corporativos */
-        footer {
-            background: #111827;
-            color: var(--color-white);
-            padding: 3rem 1.5rem 1.5rem;
-            margin-top: 4rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .footer-content h4 {
-            color: var(--color-secondary);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .footer-content ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .footer-content ul li {
-            margin-bottom: 0.6rem;
-        }
-
-        .footer-content ul li a {
-            color: #9CA3AF;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.2s;
-            cursor: pointer;
-        }
-
-        .footer-content ul li a:hover {
-            color: var(--color-white);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 1.5rem;
-            font-size: 0.85rem;
-            color: #9CA3AF;
-        }
-
-        /* Adaptabilidad Responsiva para Dispositivos Móviles */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 1rem;
-                padding: 1rem;
-                text-align: center;
-            }
-            nav {
-                justify-content: center;
-                gap: 1rem;
-            }
-            .hero-brand {
-                font-size: 2.2rem;
-            }
-            .hero h1 {
-                font-size: 1.3rem;
-            }
-            .hero {
-                padding: 3rem 1rem;
-            }
-            .container {
-                margin: 2rem auto;
-                padding: 0 1rem;
-            }
-            .seccion-titulo {
-                font-size: 1.7rem;
-                margin-bottom: 2rem;
-            }
-            .precios-container, .info-section, .recoleccion-container {
-                padding: 1.5rem;
-            }
-            .recoleccion-grid {
-                grid-template-columns: 1fr;
-            }
-            .modal-content {
-                padding: 1.5rem;
-                margin: 10% auto;
-            }
-        }
-    </style>
+    <meta name="description" content="Servicio profesional de planchado con equipo de vapor industrial. Paquetes por docena, trajes, prendas delicadas, servicio exprés y recolección a domicilio.">
+
+    <!-- Open Graph para vista previa en WhatsApp y Facebook -->
+    <meta property="og:title" content="La Planchita | Planchado Profesional">
+    <meta property="og:description" content="Dejamos tus prendas impecables y listas para usar. Consulta tarifas y solicita recolección a domicilio.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
+    <meta property="og:image" content="https://laplanchita-henna.vercel.app/images/images-defaul/logo-provisional.png">
+
+    <link rel="icon" type="image/png" href="images/images-defaul/logo-provisional.png">
+
+    <!-- Iconos oficiales de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- Estilos y scripts externos -->
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
-    <!-- Botón Flotante Moderno de WhatsApp con Número Vinculado -->
-    <a href="https://wa.me/525636705013?text=Hola,%20deseo%20solicitar%20información%20sobre%20el%20servicio%20de%20planchado." class="whatsapp-float" target="_blank" title="Contáctanos por WhatsApp">
-        <i class="fa-brands fa-whatsapp"></i>
+    <!-- Botón Flotante de WhatsApp -->
+    <a href="https://wa.me/525636705013?text=Hola,%20deseo%20solicitar%20informaci%C3%B3n%20sobre%20el%20servicio%20de%20planchado."
+       class="whatsapp-float"
+       target="_blank"
+       rel="noopener noreferrer"
+       title="Contáctanos por WhatsApp"
+       aria-label="Contáctanos por WhatsApp">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
     </a>
 
-    <!-- Header / Menú -->
+    <!-- Header / Navegación -->
     <header>
-        <div class="logo-container">
-            <img src="images/images-defaul/logo-provisional.png" alt="Logo La Planchita">
-            <h2><strong>La Planchita</strong></h2>
-        </div>
-        <nav>
+        <a href="#inicio" class="logo-container">
+            <img src="images/images-defaul/logo-provisional.png" data-cliente="logo-provisional.png" class="img-dinamica" alt="Logo La Planchita" width="48" height="48">
+            <span class="brand-name">La Planchita</span>
+        </a>
+        <nav aria-label="Navegación principal">
             <a href="#inicio">Inicio</a>
             <a href="#servicios">Servicios</a>
             <a href="#precios">Precios</a>
@@ -634,306 +51,320 @@
         </nav>
     </header>
 
-    <!-- Sección Hero -->
-    <section class="hero" id="inicio">
-        <img src="images/images-defaul/logo-provisional.png" alt="Logotipo La Planchita" class="hero-logo">
-        <div class="hero-brand">La Planchita</div>
-        <h1>Servicio de Planchado Profesional</h1>
-        <p>Cuidado experto con equipo profesional y de pedestal con vapor de agua. Dejamos tus prendas impecables y listas para usar.</p>
-    </section>
+    <main>
+        <!-- Sección Hero -->
+        <section class="hero" id="inicio">
+            <img src="images/images-defaul/logo-provisional.png" data-cliente="logo-provisional.png" class="img-dinamica hero-logo" alt="Logotipo La Planchita" width="160" height="160">
+            <p class="hero-brand">La Planchita</p>
+            <h1>Servicio de Planchado Profesional</h1>
+            <p>Cuidado experto con equipo profesional y de pedestal con vapor de agua. Dejamos tus prendas impecables y listas para usar.</p>
+        </section>
 
-    <!-- Contenido Principal / Servicios -->
-    <main class="container" id="servicios">
-        <h2 class="seccion-titulo">Nuestros Servicios</h2>
-        <div class="grid">
-            
-            <!-- Servicio 1 -->
-            <div class="servicio-card">
-                <img src="images/images-defaul/servicio1.jpg" alt="Por Docena y Media Docena de ropa">
-                <div class="content">
-                    <h3>Por Docena / Media Docena (6 a 12 prendas)</h3>
-                    <p>Ideal para tu ropa de uso diario. Lotes organizados con secciones diferenciadas: desde una proporción ligera de prendas delicadamente dobladas hasta volúmenes compactos y listos para guardar.</p>
-                </div>
+        <!-- Servicios -->
+        <section class="container" id="servicios">
+            <h2 class="seccion-titulo">Nuestros Servicios</h2>
+            <div class="grid">
+                <article class="servicio-card">
+                    <img src="images/images-defaul/servicio1.jpg" data-cliente="servicio1.jpg" class="img-dinamica" alt="Por Docena y Media Docena de ropa" width="400" height="210" loading="lazy" decoding="async">
+                    <div class="content">
+                        <h3>Por Docena / Media Docena (6 a 12 prendas)</h3>
+                        <p>Ideal para tu ropa de uso diario. Lotes organizados con secciones diferenciadas: desde una proporción ligera de prendas delicadamente dobladas hasta volúmenes compactos y listos para guardar.</p>
+                    </div>
+                </article>
+
+                <article class="servicio-card">
+                    <img src="images/images-defaul/servicio2.jpg" data-cliente="servicio2.jpg" class="img-dinamica" alt="Traje de caballero planchado" width="400" height="210" loading="lazy" decoding="async">
+                    <div class="content">
+                        <h3>Trajes de Caballero</h3>
+                        <p>Cuidado meticuloso con vapor de agua y plancha profesional para sacos y pantalones, manteniendo cortes limpios y sin brillos indeseados.</p>
+                    </div>
+                </article>
+
+                <article class="servicio-card">
+                    <img src="images/images-defaul/servicio3.jpg" data-cliente="servicio3.jpg" class="img-dinamica" alt="Pantalones de mezclilla y vestir planchados" width="400" height="210" loading="lazy" decoding="async">
+                    <div class="content">
+                        <h3>Pantalones de Mezclilla y Vestir</h3>
+                        <p>Respetamos las fibras de jeans o el doblez de pantalones de vestir, logrando una raya perfecta y duradera.</p>
+                    </div>
+                </article>
+
+                <article class="servicio-card">
+                    <img src="images/images-defaul/servicio4.jpg" data-cliente="servicio4.jpg" class="img-dinamica" alt="Camisas y blusas planchadas en gancho" width="400" height="210" loading="lazy" decoding="async">
+                    <div class="content">
+                        <h3>Calidad en Servicio</h3>
+                        <p>Tus camisas y blusas se entregan directamente en percha con acabado de tintorería, evitando cualquier doblez antes de usarlas.</p>
+                    </div>
+                </article>
+
+                <article class="servicio-card">
+                    <img src="images/images-defaul/servicio5.jpg" data-cliente="servicio5.jpg" class="img-dinamica" alt="Planchado de prendas delicadas" width="400" height="210" loading="lazy" decoding="async">
+                    <div class="content">
+                        <h3>Planchado de Prendas Delicadas</h3>
+                        <p>Tratamiento artesanal y delicado para prendas de alta costura, tul, seda y aplicaciones finas con vapor vertical profesional.</p>
+                    </div>
+                </article>
+
+                <article class="servicio-card">
+                    <img src="images/images-defaul/servicio6.jpg" data-cliente="servicio6.jpg" class="img-dinamica" alt="Servicio urgente exprés de planchado" width="400" height="210" loading="lazy" decoding="async">
+                    <div class="content">
+                        <h3>Servicios Urgentes Exprés</h3>
+                        <p>¿Tienes un evento imprevisto? Trae tu ropa y te la entregamos lista en tiempo récord con la misma calidad impecable.</p>
+                    </div>
+                </article>
             </div>
+        </section>
 
-            <!-- Servicio 2 -->
-            <div class="servicio-card">
-                <img src="images/images-defaul/servicio2.jpg" alt="Traje de caballero">
-                <div class="content">
-                    <h3>Trajes de Caballero</h3>
-                    <p>Cuidado meticuloso con vapor de agua y plancha profesional para sacos y pantalones, manteniendo cortes limpios y sin brillos indeseados.</p>
-                </div>
-            </div>
+        <!-- Precios y Tarifas -->
+        <section class="container" id="precios">
+            <div class="precios-container">
+                <h2 class="seccion-titulo">Lista de Precios y Tarifas</h2>
+                <p class="precios-intro">Consulta nuestras tarifas competitivas por pieza individual, paquetes por media docena y docena, así como nuestro servicio exprés para emergencias.</p>
 
-            <!-- Servicio 3 -->
-            <div class="servicio-card">
-                <img src="images/images-defaul/servicio3.jpg" alt="Pantalones de mezclilla y vestir planchados">
-                <div class="content">
-                    <h3>Pantalones de Mezclilla y Vestir</h3>
-                    <p>Respetamos las fibras de jeans o el doblez de pantalones de vestir, logrando una raya perfecta y duradera.</p>
-                </div>
-            </div>
-
-            <!-- Servicio 4 -->
-            <div class="servicio-card">
-                <img src="images/images-defaul/servicio4.jpg" alt="Repisa de camisas y blusas planchadas">
-                <div class="content">
-                    <h3>Calidad en Servicio</h3>
-                    <p>Tus camisas y blusas se entregan directamente en percha con acabado de tintorería, evitando cualquier doblez antes de usarlas.</p>
-                </div>
-            </div>
-
-            <!-- Servicio 5 -->
-            <div class="servicio-card">
-                <img src="images/images-defaul/servicio5.jpg" alt="Planchado de prendas delicadas">
-                <div class="content">
-                    <h3>Planchado de prendas delicadas</h3>
-                    <p>Tratamiento artesanal y delicado para prendas de alta costura, tul, seda y aplicaciones finas con vapor vertical profesional.</p>
-                </div>
-            </div>
-
-            <!-- Servicio 6 -->
-            <div class="servicio-card">
-                <img src="images/images-defaul/servicio6.jpg" alt="Servicio urgente de planchado">
-                <div class="content">
-                    <h3>Servicios Urgentes Exprés</h3>
-                    <p>¿Tienes un evento imprevisto? Trae tu ropa y te la entregamos lista en tiempo récord con la misma calidad impecable.</p>
-                </div>
-            </div>
-
-        </div>
-    </main>
-
-    <!-- SECCIÓN: PRECIOS Y TARIFAS -->
-    <section class="container" id="precios">
-        <div class="precios-container">
-            <h2 class="seccion-titulo">Lista de Precios y Tarifas</h2>
-            <p style="text-align: center; max-width: 750px; margin: 0 auto 2.5rem; color: #555;">Consulta nuestras tarifas competitivas por pieza individual, paquetes por media docena y docena, así como nuestro servicio exprés para emergencias.</p>
-
-            <div class="precios-grid">
-                <!-- Tabla 1: Precios por Pieza Individual y Exprés -->
-                <div class="precio-tabla-wrapper">
-                    <h3>Precios por Pieza Individual</h3>
-                    <table class="tabla-precios">
-                        <thead>
-                            <tr>
-                                <th>Concepto de Prenda</th>
-                                <th>Tarifa</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Camisa / Blusa</td>
-                                <td>$20.00</td>
-                            </tr>
-                            <tr>
-                                <td>Pantalón de Vestir / Mezclilla</td>
-                                <td>$22.00</td>
-                            </tr>
-                            <tr>
-                                <td>Saco / Blazer</td>
-                                <td>$45.00</td>
-                            </tr>
-                            <tr>
-                                <td>Traje Completo (2 Piezas)</td>
-                                <td>$60.00</td>
-                            </tr>
-                            <tr>
-                                <td>Traje Completo (3 Piezas)</td>
-                                <td>$75.00</td>
-                            </tr>
-                            <tr>
-                                <td>Vestido Sencillo</td>
-                                <td>$35.00</td>
-                            </tr>
-                            <tr>
-                                <td>Vestido de Fiesta / Delicado</td>
-                                <td>$60.00+</td>
-                            </tr>
-                            <tr>
-                                <td>Corbata / Bufanda</td>
-                                <td>$15.00</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Servicio Urgente Exprés (Adicional / Mínimo)</strong></td>
-                                <td><strong>+$30.00</strong></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="precio-nota">
-                        ⚡ <strong>Nota Exprés:</strong> El servicio exprés garantiza la entrega prioritaria de tus prendas en tiempo récord (sujeto a disponibilidad en establecimiento). Aplica un recargo de $30.00 MXN o +50% sobre el total del servicio regular.
-                    </div>
-                </div>
-
-                <!-- Tabla 2: Paquetes por Docena y Media Docena -->
-                <div class="precio-tabla-wrapper">
-                    <h3>Paquetes por Docena y 1/2 Docena</h3>
-                    <table class="tabla-precios">
-                        <thead>
-                            <tr>
-                                <th>Paquete Especial</th>
-                                <th>1/2 Docena (6)</th>
-                                <th>Docena (12)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Camisas / Blusas</td>
-                                <td>$110.00</td>
-                                <td>$210.00</td>
-                            </tr>
-                            <tr>
-                                <td>Pantalones</td>
-                                <td>$120.00</td>
-                                <td>$230.00</td>
-                            </tr>
-                            <tr>
-                                <td>Mixto (Camisas y Pantalones)</td>
-                                <td>$115.00</td>
-                                <td>$220.00</td>
-                            </tr>
-                            <tr>
-                                <td>Ropa Variada Uso Diario</td>
-                                <td>$100.00</td>
-                                <td>$190.00</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <div class="precio-nota">
-                        📦 <strong>Ahorro y Calidad:</strong> Los paquetes por docena están diseñados para maximizar tu ahorro en ropa de uso diario, entregada doblada o en percha según prefieras.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección: Equipo y Técnica -->
-    <section class="container" id="equipo">
-        <div class="info-section">
-            <h2 class="seccion-titulo">Equipo y Técnica Profesional</h2>
-            <p style="text-align: justify; max-width: 900px; margin: 0 auto;">Utilizamos estaciones de planchado industrial de pedestal equipadas con generadores de vapor continuo de alta presión. Esta tecnología permite relajar las fibras textiles sin someter la prenda a fricciones agresivas o calor excesivo directo, evitando quemaduras, brillos molestos y garantizando un acabado perfectamente liso y desinfectado.</p>
-        </div>
-    </section>
-
-    <!-- Sección: Promociones del Mes -->
-    <section class="container" id="promociones">
-        <div class="promo-box">
-            <h3>Promociones de Temporada</h3>
-            <p style="text-align: center; margin: 0;">¡Aprovecha nuestro paquete especial de mes! En el planchado por docena de ropa de uso diario, obtén un 15% de descuento en tu tercera visita presentando tu tarjeta de cliente frecuente.</p>
-        </div>
-    </section>
-
-    <!-- Sección: Recolección y Contacto Corporativo -->
-    <section class="container" id="recoleccion">
-        <div class="recoleccion-container">
-            <h2 class="seccion-titulo">Solicita tu Recolección a Domicilio</h2>
-            
-            <div class="recoleccion-grid">
-                <!-- Formulario de Recolección -->
-                <form id="formRecoleccion" onsubmit="enviarWhatsApp(event)">
-                    <div class="form-group">
-                        <label for="nombre">Nombre Completo:</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Ej. María López" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="telefono">Teléfono de Contacto:</label>
-                        <input type="tel" id="telefono" name="telefono" placeholder="Ej. 55 1234 5678" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="direccion">Calle, Número y Colonia:</label>
-                        <textarea id="direccion" name="direccion" rows="2" placeholder="Indica tu dirección completa..." required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="referencias">Referencias del domicilio:</label>
-                        <input type="text" id="referencias" name="referencias" placeholder="Ej. Casa color blanca, entre calle 2 y calle 3">
-                    </div>
-                    <div class="form-group">
-                        <label for="servicio">Tipo de Servicio o Paquete:</label>
-                        <select id="servicio" name="servicio">
-                            <option value="Pieza Individual">Pieza Individual (Camisa, Pantalón, Saco, etc.)</option>
-                            <option value="Docena / 1/2 Docena de Camisas">Docena / 1/2 Docena de Camisas</option>
-                            <option value="Docena / 1/2 Docena de Pantalones">Docena / 1/2 Docena de Pantalones</option>
-                            <option value="Docena / 1/2 Docena Mixta">Docena / 1/2 Docena Mixta (Camisas y Pantalones)</option>
-                            <option value="Trajes de Caballero">Trajes de Caballero</option>
-                            <option value="Prendas Delicadas / Vestidos">Prendas Delicadas / Vestidos</option>
-                            <option value="Servicio Urgente Exprés">Servicio Urgente Exprés (+$30)</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn-enviar">📲 Enviar Solicitud por WhatsApp</button>
-                </form>
-
-                <!-- Bloque de Cobertura y Tarjeta de Canales con Facebook y Google Maps -->
-                <div>
-                    <div class="cobertura-info">
-                        <h4>🚚 Zona de Cobertura a Domicilio</h4>
-                        <p style="font-size: 0.9rem; text-align: justify; margin-bottom: 0.8rem;">
-                            Realizamos recolección y entrega sin costo extra <strong>dentro de la colonia y hasta un máximo de 1.5 km a la redonda</strong> desde nuestro establecimiento, asegurando puntualidad y cuidado en tus prendas.
-                        </p>
-                        <p style="font-size: 0.85rem; color: #666; margin: 0;">
-                            * Si te encuentras fuera de este perímetro, contáctanos directamente para coordinar tu envío.
-                        </p>
+                <div class="precios-grid">
+                    <!-- Tabla 1: Pieza Individual -->
+                    <div class="precio-tabla-wrapper">
+                        <h3>Precios por Pieza Individual</h3>
+                        <div class="table-responsive">
+                            <table class="tabla-precios">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Concepto de Prenda</th>
+                                        <th scope="col" class="col-precio">Tarifa</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Camisa / Blusa</td>
+                                        <td class="col-precio">$20.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pantalón de Vestir / Mezclilla</td>
+                                        <td class="col-precio">$22.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Saco / Blazer</td>
+                                        <td class="col-precio">$45.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Traje Completo (2 Piezas)</td>
+                                        <td class="col-precio">$60.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Traje Completo (3 Piezas)</td>
+                                        <td class="col-precio">$75.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vestido Sencillo</td>
+                                        <td class="col-precio">$35.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vestido de Fiesta / Delicado</td>
+                                        <td class="col-precio">$60.00+</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Corbata / Bufanda</td>
+                                        <td class="col-precio">$15.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Servicio Urgente Exprés (Adicional / Mínimo)</strong></td>
+                                        <td class="col-precio"><strong>+$30.00</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="precio-nota">
+                            <span aria-hidden="true">⚡</span> <strong>Nota Exprés:</strong> El servicio exprés garantiza la entrega prioritaria de tus prendas en tiempo récord (sujeto a disponibilidad en establecimiento). Aplica un recargo de $30.00 MXN o +50% sobre el total del servicio regular.
+                        </div>
                     </div>
 
-                    <div class="social-channels-card">
-                        <h4>Canales Oficiales y Ubicación</h4>
-                        <p>Conéctate de manera directa con nuestro establecimiento:</p>
-                        
-                        <div class="social-circles-wrapper">
-                            <a href="https://wa.me/525636705013?text=Hola,%20deseo%20solicitar%20información." target="_blank" class="pro-circle-btn bg-wa" title="WhatsApp">
-                                <i class="fa-brands fa-whatsapp"></i>
-                            </a>
-                            <!-- Enlace de Facebook Oficial Integrado -->
-                            <a href="https://www.facebook.com/laplanchita.gs" target="_blank" class="pro-circle-btn bg-fb" title="Facebook">
-                                <i class="fa-brands fa-facebook-f"></i>
-                            </a>
-                            <!-- Enlace de Google Maps Oficial Integrado -->
-                            <a href="https://maps.app.goo.gl/h63DbDLL1CCr9a6a9" target="_blank" class="pro-circle-btn bg-map" title="Google Maps">
-                                <i class="fa-solid fa-location-dot"></i>
-                            </a>
+                    <!-- Tabla 2: Paquetes -->
+                    <div class="precio-tabla-wrapper">
+                        <h3>Paquetes por Docena y 1/2 Docena</h3>
+                        <div class="table-responsive">
+                            <table class="tabla-precios">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Paquete Especial</th>
+                                        <th scope="col" class="col-precio">1/2 Docena (6)</th>
+                                        <th scope="col" class="col-precio">Docena (12)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Camisas / Blusas</td>
+                                        <td class="col-precio">$110.00</td>
+                                        <td class="col-precio">$210.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pantalones</td>
+                                        <td class="col-precio">$120.00</td>
+                                        <td class="col-precio">$230.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mixto (Camisas y Pantalones)</td>
+                                        <td class="col-precio">$115.00</td>
+                                        <td class="col-precio">$220.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ropa Variada Uso Diario</td>
+                                        <td class="col-precio">$100.00</td>
+                                        <td class="col-precio">$190.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="precio-nota">
+                            <span aria-hidden="true">📦</span> <strong>Ahorro y Calidad:</strong> Los paquetes por docena están diseñados para maximizar tu ahorro en ropa de uso diario, entregada doblada o en percha según prefieras.
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Sección: Nosotros -->
-    <section class="container" id="nosotros">
-        <div class="info-section">
-            <h2 class="seccion-titulo">Nosotros</h2>
-            <p style="text-align: justify; max-width: 900px; margin: 0 auto 2rem;">Somos un negocio dedicado a simplificar tu rutina diaria mediante el cuidado experto de tus prendas. Entendemos el valor de tu tiempo y la importancia de proyectar una imagen impecable, por lo que tratamos cada prenda con dedicación artesanal, puntualidad y un estándar de calidad superior.</p>
-            
-            <div class="nosotros-grid">
-                <div class="nosotros-card">
-                    <h4>Nuestra Misión</h4>
-                    <p style="font-size: 0.9rem; text-align: justify; margin: 0;">Brindar un servicio de planchado y cuidado textil de la más alta calidad, ahorrando tiempo a nuestros clientes y garantizando prendas impecables mediante procesos profesionales y eficientes.</p>
-                </div>
-                <div class="nosotros-card">
-                    <h4>Nuestra Visión</h4>
-                    <p style="font-size: 0.9rem; text-align: justify; margin: 0;">Consolidarnos como la planchaduría de referencia en nuestra comunidad, reconocidos por la excelencia en el servicio, la puntualidad y la confianza depositada en cada prenda.</p>
+        <!-- Equipo y Técnica -->
+        <section class="container" id="equipo">
+            <div class="info-section">
+                <h2 class="seccion-titulo">Equipo y Técnica Profesional</h2>
+                <p class="equipo-texto">Utilizamos estaciones de planchado industrial de pedestal equipadas con generadores de vapor continuo de alta presión. Esta tecnología permite relajar las fibras textiles sin someter la prenda a fricciones agresivas o calor excesivo directo, evitando quemaduras, brillos molestos y garantizando un acabado perfectamente liso y desinfectado.</p>
+            </div>
+        </section>
+
+        <!-- Promociones -->
+        <section class="container" id="promociones">
+            <div class="promo-box">
+                <h2>Promociones de Temporada</h2>
+                <p class="promo-texto">¡Aprovecha nuestro paquete especial de mes! En el planchado por docena de ropa de uso diario, obtén un 15% de descuento en tu tercera visita presentando tu tarjeta de cliente frecuente.</p>
+            </div>
+        </section>
+
+        <!-- Recolección y Contacto -->
+        <section class="container" id="recoleccion">
+            <div class="recoleccion-container">
+                <h2 class="seccion-titulo">Solicita tu Recolección a Domicilio</h2>
+
+                <div class="recoleccion-grid">
+                    <!-- Formulario -->
+                    <form id="formRecoleccion" novalidate>
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo:</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Ej. María López" autocomplete="name" maxlength="100" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono de Contacto:</label>
+                            <input type="tel" id="telefono" name="telefono" placeholder="Ej. 55 1234 5678" autocomplete="tel" inputmode="tel" maxlength="20" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="direccion">Calle, Número y Colonia:</label>
+                            <textarea id="direccion" name="direccion" rows="2" placeholder="Indica tu dirección completa..." autocomplete="street-address" maxlength="250" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="referencias">Referencias del domicilio:</label>
+                            <input type="text" id="referencias" name="referencias" placeholder="Ej. Casa color blanca, entre calle 2 y calle 3" maxlength="150">
+                        </div>
+                        <div class="form-group">
+                            <label for="servicio">Tipo de Servicio o Paquete:</label>
+                            <select id="servicio" name="servicio">
+                                <option value="Pieza Individual">Pieza Individual (Camisa, Pantalón, Saco, etc.)</option>
+                                <option value="Docena / 1/2 Docena de Camisas">Docena / 1/2 Docena de Camisas</option>
+                                <option value="Docena / 1/2 Docena de Pantalones">Docena / 1/2 Docena de Pantalones</option>
+                                <option value="Docena / 1/2 Docena Mixta">Docena / 1/2 Docena Mixta (Camisas y Pantalones)</option>
+                                <option value="Trajes de Caballero">Trajes de Caballero</option>
+                                <option value="Prendas Delicadas / Vestidos">Prendas Delicadas / Vestidos</option>
+                                <option value="Servicio Urgente Exprés">Servicio Urgente Exprés (+$30)</option>
+                            </select>
+                        </div>
+                        <p id="formError" class="form-error" role="alert" aria-live="polite"></p>
+                        <button type="submit" class="btn-enviar">
+                            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Enviar Solicitud por WhatsApp
+                        </button>
+                    </form>
+
+                    <!-- Cobertura y Canales -->
+                    <div>
+                        <div class="cobertura-info">
+                            <h3><span aria-hidden="true">🚚</span> Zona de Cobertura a Domicilio</h3>
+                            <p class="cobertura-texto">
+                                Realizamos recolección y entrega sin costo extra <strong>dentro de la colonia y hasta un máximo de 1.5 km a la redonda</strong> desde nuestro establecimiento, asegurando puntualidad y cuidado en tus prendas.
+                            </p>
+                            <p class="cobertura-nota">
+                                * Si te encuentras fuera de este perímetro, contáctanos directamente para coordinar tu envío.
+                            </p>
+                        </div>
+
+                        <div class="social-channels-card">
+                            <h3>Canales Oficiales y Ubicación</h3>
+                            <p>Conéctate de manera directa con nuestro establecimiento:</p>
+
+                            <div class="social-circles-wrapper">
+                                <a href="https://wa.me/525636705013?text=Hola,%20deseo%20solicitar%20informaci%C3%B3n."
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="pro-circle-btn bg-wa"
+                                   title="WhatsApp"
+                                   aria-label="WhatsApp de La Planchita">
+                                    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                                </a>
+                                <a href="https://www.facebook.com/laplanchita.gs"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="pro-circle-btn bg-fb"
+                                   title="Facebook"
+                                   aria-label="Página de Facebook de La Planchita">
+                                    <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+                                </a>
+                                <a href="https://maps.app.goo.gl/h63DbDLL1CCr9a6a9"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="pro-circle-btn bg-map"
+                                   title="Google Maps"
+                                   aria-label="Ubicación en Google Maps">
+                                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Nosotros -->
+        <section class="container" id="nosotros">
+            <div class="info-section">
+                <h2 class="seccion-titulo">Nosotros</h2>
+                <p class="nosotros-intro">Somos un negocio dedicado a simplificar tu rutina diaria mediante el cuidado experto de tus prendas. Entendemos el valor de tu tiempo y la importancia de proyectar una imagen impecable, por lo que tratamos cada prenda con dedicación artesanal, puntualidad y un estándar de calidad superior.</p>
+
+                <div class="nosotros-grid">
+                    <div class="nosotros-card">
+                        <h3>Nuestra Misión</h3>
+                        <p>Brindar un servicio de planchado y cuidado textil de la más alta calidad, ahorrando tiempo a nuestros clientes y garantizando prendas impecables mediante procesos profesionales y eficientes.</p>
+                    </div>
+                    <div class="nosotros-card">
+                        <h3>Nuestra Visión</h3>
+                        <p>Consolidarnos como la planchaduría de referencia en nuestra comunidad, reconocidos por la excelencia en el servicio, la puntualidad y la confianza depositada en cada prenda.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Modales Legales -->
-    <div id="modalTerminos" class="modal">
+    <div id="modalTerminos" class="modal" role="dialog" aria-modal="true" aria-labelledby="tituloTerminos">
         <div class="modal-content">
-            <span class="close-modal" onclick="cerrarModal('modalTerminos')">&times;</span>
-            <h3>Términos y Condiciones del Servicio</h3>
-            <p><strong>Última actualización:</strong> Noviembre 2026</p>
-            
+            <button type="button" class="close-modal" aria-label="Cerrar términos y condiciones">&times;</button>
+            <h3 id="tituloTerminos">Términos y Condiciones del Servicio</h3>
+            <p><strong>Última actualización:</strong> Abril 2026</p>
+
             <h4>1. Aceptación de los Términos</h4>
-            <p>Al utilizar los servicios de planchado, recolección y entrega a domicilio de <strong>"La Planchita"</strong>, el cliente acepta expresamente los presentes Términos y Condiciones.</p>
+            <p>Al utilizar los servicios de planchado, recolección y entrega a domicilio de <strong>La Planchita</strong>, el cliente acepta expresamente los presentes Términos y Condiciones.</p>
 
             <h4>2. Recepción y Revisión de Prendas</h4>
-            <p>Las prendas son revisadas al momento de su recepción. "La Planchita" no se hace responsable por objetos olvidados en bolsas o daños ocultos previos por desgaste natural.</p>
+            <p>Las prendas son revisadas al momento de su recepción. La Planchita no se hace responsable por objetos olvidados en bolsas o daños ocultos previos por desgaste natural.</p>
 
             <h4>3. Tiempos de Entrega y Recolección a Domicilio</h4>
-            <p>El servicio de recolección y entrega sin costo aplica dentro del radio establecido (hasta 1.5 km).</p>
+            <p>El servicio de recolección y entrega sin costo aplica dentro del radio establecido (hasta 1.5 km desde el establecimiento).</p>
 
             <h4>4. Servicio Exprés y Urgencias</h4>
-            <p>El servicio exprés aplica un recargo adicional sobre la tarifa regular para garantizar la priorización y entrega urgente.</p>
+            <p>El servicio exprés aplica un recargo adicional sobre la tarifa regular para garantizar la priorización y entrega urgente, sujeto a disponibilidad operativa.</p>
 
             <h4>5. Prendas no Retiradas</h4>
             <p>Las prendas no reclamadas después de 90 días naturales no son responsabilidad del establecimiento.</p>
@@ -943,20 +374,20 @@
         </div>
     </div>
 
-    <div id="modalPrivacidad" class="modal">
+    <div id="modalPrivacidad" class="modal" role="dialog" aria-modal="true" aria-labelledby="tituloPrivacidad">
         <div class="modal-content">
-            <span class="close-modal" onclick="cerrarModal('modalPrivacidad')">&times;</span>
-            <h3>Aviso de Privacidad</h3>
-            <p><strong>Conforme a la Ley Federal de Protección de Datos Personales (LFPDPPP)</strong></p>
-            
-            <h4>1. Responsable</h4>
-            <p><strong>La Planchita</strong> es responsable de recabar y proteger sus datos personales.</p>
+            <button type="button" class="close-modal" aria-label="Cerrar aviso de privacidad">&times;</button>
+            <h3 id="tituloPrivacidad">Aviso de Privacidad</h3>
+            <p><strong>Conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)</strong></p>
 
-            <h4>2. Datos Recabados</h4>
-            <p>Nombre completo, teléfono y dirección para fines exclusivos de recolección y entrega a domicilio.</p>
+            <h4>1. Responsable y Domicilio</h4>
+            <p><strong>La Planchita</strong>, con establecimiento ubicado en <em>[Indica aquí tu dirección comercial o colonia]</em>, es responsable de recabar y proteger sus datos personales.</p>
+
+            <h4>2. Datos Recabados y Finalidad</h4>
+            <p>Recabamos su nombre completo, teléfono, dirección y referencias únicamente para coordinar la recolección, seguimiento y entrega de sus prendas a domicilio. No compartimos ni transferimos sus datos con terceros.</p>
 
             <h4>3. Derechos ARCO</h4>
-            <p>Usted puede ejercer sus derechos de acceso, rectificación, cancelación u oposición contactándonos directamente.</p>
+            <p>Usted puede ejercer sus derechos de Acceso, Rectificación, Cancelación u Oposición (ARCO) enviando un mensaje vía WhatsApp al <strong>56 3670 5013</strong> o acudiendo directamente a nuestro establecimiento.</p>
         </div>
     </div>
 
@@ -965,7 +396,7 @@
         <div class="footer-content">
             <div>
                 <h4>La Planchita</h4>
-                <p style="font-size: 0.9rem; color: #9CA3AF; text-align: justify;">Cuidado profesional para tus prendas con estándares de calidad superiores.</p>
+                <p class="footer-desc">Cuidado profesional para tus prendas con estándares de calidad superiores.</p>
             </div>
             <div>
                 <h4>Enlaces Rápidos</h4>
@@ -981,8 +412,8 @@
             <div>
                 <h4>Legal y Transparencia</h4>
                 <ul>
-                    <li><a onclick="abrirModal('modalTerminos')">Términos y Condiciones</a></li>
-                    <li><a onclick="abrirModal('modalPrivacidad')">Aviso de Privacidad</a></li>
+                    <li><button type="button" class="footer-legal-btn" data-modal="modalTerminos">Términos y Condiciones</button></li>
+                    <li><button type="button" class="footer-legal-btn" data-modal="modalPrivacidad">Aviso de Privacidad</button></li>
                 </ul>
             </div>
         </div>
@@ -990,45 +421,6 @@
             <p>&copy; 2026 La Planchita. Todos los derechos reservados.</p>
         </div>
     </footer>
-
-    <!-- Script JavaScript Tradicional con Negritas Ordenadas -->
-    <script>
-        function abrirModal(idModal) {
-            document.getElementById(idModal).style.display = "block";
-        }
-
-        function cerrarModal(idModal) {
-            document.getElementById(idModal).style.display = "none";
-        }
-
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = "none";
-            }
-        }
-
-        function enviarWhatsApp(event) {
-            event.preventDefault();
-            
-            var nombre = document.getElementById('nombre').value;
-            var telefono = document.getElementById('telefono').value;
-            var direccion = document.getElementById('direccion').value;
-            var referencias = document.getElementById('referencias').value || "Ninguna";
-            var servicio = document.getElementById('servicio').value;
-
-            var numeroWhatsApp = "525636705013";
-            
-            var mensaje = "Hola, *La Planchita*. Deseo solicitar una recolección a domicilio:\n\n" +
-                          "*Nombre:* " + nombre + "\n" +
-                          "*Teléfono:* " + telefono + "\n" +
-                          "*Dirección:* " + direccion + "\n" +
-                          "*Referencias:* " + referencias + "\n" +
-                          "*Servicio:* " + servicio;
-
-            var url = "https://wa.me/" + numeroWhatsApp + "?text=" + encodeURIComponent(mensaje);
-            window.open(url, "_blank");
-        }
-    </script>
 
 </body>
 </html>
