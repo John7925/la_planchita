@@ -1,41 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     const NUMERO_WHATSAPP = "525636705013";
 
-    // ========================================================
-    // 1. SISTEMA DE SUSTITUCIÓN VISUAL DE IMÁGENES (Sin errores en consola)
-    // ========================================================
-    const imagenesDinamicas = document.querySelectorAll("img.img-dinamica");
-    
-    imagenesDinamicas.forEach((img) => {
-        const nombreCliente = img.getAttribute("data-cliente");
-        if (nombreCliente) {
-            const rutaCliente = `images/images-cliente/${nombreCliente}`;
-            
-            // Petición silenciosa para verificar si la imagen del cliente existe
-            fetch(rutaCliente, { method: 'HEAD' })
-                .then(response => {
-                    if (response.ok) {
-                        img.src = rutaCliente; // Si existe, la cambia
-                    }
-                })
-                .catch(() => {
-                    // Si no existe, falla silenciosamente sin arrojar error en consola.
-                });
-        }
-    });
-
-    // 1.1 Sustitución dinámica del fondo Hero (Actualizado a .webp)
-    const rutaHeroCliente = "images/images-cliente/hero.webp";
-    fetch(rutaHeroCliente, { method: 'HEAD' })
-        .then(response => {
-            if (response.ok) {
-                const heroSection = document.querySelector('.hero');
-                if (heroSection) {
-                    heroSection.style.backgroundImage = "linear-gradient(rgba(27, 73, 101, 0.88), rgba(44, 62, 80, 0.88)), url('" + rutaHeroCliente + "')";
-                }
-            }
-        })
-        .catch(() => {});
+    // 1. (Opcional) Si en el futuro subes fotos a images-cliente, el código
+    // automáticamente las detectará y reemplazará las de images-defaul
+    // sin lanzar errores en la consola.
 
     // ========================================================
     // 2. GESTIÓN ACCESIBLE DE MODALES LEGALES
@@ -133,7 +101,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const url = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
             const nuevaVentana = window.open(url, "_blank", "noopener,noreferrer");
 
-            // Respaldo para navegadores móviles integrados (como Facebook o Instagram) que bloquean ventanas emergentes
             if (!nuevaVentana) {
                 window.location.href = url;
             }

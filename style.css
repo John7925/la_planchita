@@ -131,6 +131,8 @@ nav a:hover {
     max-width: 1200px;
     margin: 3rem auto;
     padding: 0 1.5rem;
+    content-visibility: auto; /* <-- NUEVA LÍNEA: Optimiza el renderizado */
+    contain-intrinsic-size: auto 500px; /* <-- NUEVA LÍNEA */
 }
 
 .seccion-titulo {
