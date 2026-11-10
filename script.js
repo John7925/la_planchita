@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const NUMERO_WHATSAPP = "525636705013";
 
     // ========================================================
-    // 1. SISTEMA DE SUSTITUCIÓN VISUAL DE IMÁGENES (Cliente > Defaul)
+    // 1. SISTEMA DE SUSTITUCIÓN VISUAL DE IMÁGENES (Sin errores en consola)
     // ========================================================
     const imagenesDinamicas = document.querySelectorAll("img.img-dinamica");
     
@@ -10,28 +10,32 @@ document.addEventListener("DOMContentLoaded", () => {
         const nombreCliente = img.getAttribute("data-cliente");
         if (nombreCliente) {
             const rutaCliente = `images/images-cliente/${nombreCliente}`;
-            const verificador = new Image();
             
-            // Si la imagen en la carpeta del cliente existe, sustituye la visual
-            verificador.onload = () => {
-                img.src = rutaCliente;
-            };
-            // Si no existe, el navegador ignora la acción y se queda la de images-defaul
-            verificador.src = rutaCliente;
+            // Petición silenciosa para verificar si la imagen del cliente existe
+            fetch(rutaCliente, { method: 'HEAD' })
+                .then(response => {
+                    if (response.ok) {
+                        img.src = rutaCliente; // Si existe, la cambia
+                    }
+                })
+                .catch(() => {
+                    // Si no existe, falla silenciosamente sin arrojar error en consola.
+                });
         }
     });
 
-    // 1.1 Sustitución dinámica del fondo Hero (hero.jpg)
-    const heroVerificador = new Image();
-    heroVerificador.onload = () => {
-        const heroSection = document.querySelector('.hero');
-        if (heroSection) {
-            // Mantiene el filtro oscuro y cambia solo la imagen de fondo si el cliente subió una nueva
-            heroSection.style.backgroundImage = "linear-gradient(rgba(27, 73, 101, 0.88), rgba(44, 62, 80, 0.88)), url('images/images-cliente/hero.jpg')";
-        }
-    };
-    heroVerificador.src = "images/images-cliente/hero.jpg";
-
+    // 1.1 Sustitución dinámica del fondo Hero (Actualizado a .webp)
+    const rutaHeroCliente = "images/images-cliente/hero.webp";
+    fetch(rutaHeroCliente, { method: 'HEAD' })
+        .then(response => {
+            if (response.ok) {
+                const heroSection = document.querySelector('.hero');
+                if (heroSection) {
+                    heroSection.style.backgroundImage = "linear-gradient(rgba(27, 73, 101, 0.88), rgba(44, 62, 80, 0.88)), url('" + rutaHeroCliente + "')";
+                }
+            }
+        })
+        .catch(() => {});
 
     // ========================================================
     // 2. GESTIÓN ACCESIBLE DE MODALES LEGALES
@@ -89,7 +93,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-
     // ========================================================
     // 3. VALIDACIÓN Y ENVÍO DE FORMULARIO POR WHATSAPP
     // ========================================================
@@ -130,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const url = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(mensaje)}`;
             const nuevaVentana = window.open(url, "_blank", "noopener,noreferrer");
 
-            // Respaldo para navegadores móviles que bloquean ventanas emergentes
+            // Respaldo para navegadores móviles integrados (como Facebook o Instagram) que bloquean ventanas emergentes
             if (!nuevaVentana) {
                 window.location.href = url;
             }

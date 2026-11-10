@@ -89,8 +89,9 @@ nav a:hover {
     color: var(--color-primary);
 }
 
+/* Fondo Hero actualizado a .webp */
 .hero {
-    background: linear-gradient(rgba(27, 73, 101, 0.88), rgba(44, 62, 80, 0.88)), url('images/images-defaul/hero.jpg') center/cover no-repeat;
+    background: linear-gradient(rgba(27, 73, 101, 0.88), rgba(44, 62, 80, 0.88)), url('images/images-defaul/hero.webp') center/cover no-repeat;
     color: var(--color-white);
     text-align: center;
     padding: 5rem 1.5rem;
@@ -434,8 +435,8 @@ nav a:hover {
     background: var(--color-light);
     padding: 1.8rem;
     border-radius: 10px;
-    border: 1px dashed var(--color-secondary); /* Borde idéntico para todos */
-    margin-bottom: 2rem; /* Separación uniforme */
+    border: 1px dashed var(--color-secondary); 
+    margin-bottom: 2rem; 
 }
 
 .horarios-info h3,
@@ -484,7 +485,7 @@ nav a:hover {
 }
 
 .social-channels-card {
-    text-align: center; /* Mantiene centrados los iconos */
+    text-align: center; 
 }
 
 .social-channels-card p {
