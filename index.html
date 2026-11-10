@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Planchita | Planchado y Cuidado Profesional de Prendas</title>
     <meta name="description" content="Servicio profesional de planchado con equipo de vapor industrial. Paquetes por docena, trajes, prendas delicadas, servicio exprés y recolección a domicilio.">
+    
+    <!-- URL Canónica (Le dice a Google cuál es la dirección oficial) -->
+    <link rel="canonical" href="https://laplanchita-henna.vercel.app/" />
 
     <!-- Open Graph para vista previa en WhatsApp y Facebook -->
     <meta property="og:title" content="La Planchita | Planchado Profesional">
@@ -15,12 +18,100 @@
 
     <link rel="icon" type="image/png" href="images/images-defaul/logo-provisional.png">
 
-    <!-- Iconos oficiales de FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-
     <!-- Estilos y scripts externos -->
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+
+    <!-- Datos Estructurados para Google (LocalBusiness / DryCleaningOrLaundry) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DryCleaningOrLaundry",
+      "name": "La Planchita",
+      "description": "Servicio de planchado profesional con equipo industrial de vapor. Paquetes por docena, trajes, prendas delicadas y servicio exprés. Recolección a domicilio.",
+      "url": "https://laplanchita-henna.vercel.app/",
+      "logo": "https://laplanchita-henna.vercel.app/images/images-defaul/logo-provisional.png",
+      "image": "https://laplanchita-henna.vercel.app/images/images-defaul/hero.jpg",
+      "telephone": "+525636705013",
+      "priceRange": "$$",
+      "currenciesAccepted": "MXN",
+      "paymentAccepted": "Efectivo, Transferencia",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Beethoven 45-Loc D",
+        "addressLocality": "Peralvillo, Cuauhtémoc",
+        "addressRegion": "CDMX",
+        "postalCode": "06220",
+        "addressCountry": "MX"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "19.4603156",
+        "longitude": "-99.1307186"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "15:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.facebook.com/laplanchita.gs",
+        "https://maps.app.goo.gl/h63DbDLL1CCr9a6a9"
+      ],
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": "19.4603156",
+          "longitude": "-99.1307186"
+        },
+        "geoRadius": "1500"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios de Planchado",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Planchado por Docena / Media Docena"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Planchado de Trajes de Caballero"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Planchado de Prendas Delicadas"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Servicio Urgente Exprés"
+            }
+          }
+        ]
+      }
+    }
+    </script>
 </head>
 <body>
 
@@ -31,7 +122,7 @@
        rel="noopener noreferrer"
        title="Contáctanos por WhatsApp"
        aria-label="Contáctanos por WhatsApp">
-        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
     </a>
 
     <!-- Header / Navegación -->
@@ -275,12 +366,22 @@
                         </div>
                         <p id="formError" class="form-error" role="alert" aria-live="polite"></p>
                         <button type="submit" class="btn-enviar">
-                            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Enviar Solicitud por WhatsApp
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg> Enviar Solicitud por WhatsApp
                         </button>
                     </form>
 
                     <!-- Cobertura y Canales -->
                     <div>
+                        <!-- BLOQUE DE HORARIOS -->
+                        <div class="horarios-info">
+                            <h3><span aria-hidden="true">🕒</span> Horarios de Atención</h3>
+                            <ul class="lista-horarios">
+                                <li><span>Lunes a Viernes:</span> <strong>9:00 - 18:00</strong></li>
+                                <li><span>Sábados:</span> <strong>10:00 - 15:00</strong></li>
+                                <li><span>Domingos:</span> <strong>Cerrado</strong></li>
+                            </ul>
+                        </div>
+
                         <div class="cobertura-info">
                             <h3><span aria-hidden="true">🚚</span> Zona de Cobertura a Domicilio</h3>
                             <p class="cobertura-texto">
@@ -302,7 +403,7 @@
                                    class="pro-circle-btn bg-wa"
                                    title="WhatsApp"
                                    aria-label="WhatsApp de La Planchita">
-                                    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
                                 </a>
                                 <a href="https://www.facebook.com/laplanchita.gs"
                                    target="_blank"
@@ -310,7 +411,7 @@
                                    class="pro-circle-btn bg-fb"
                                    title="Facebook"
                                    aria-label="Página de Facebook de La Planchita">
-                                    <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
                                 </a>
                                 <a href="https://maps.app.goo.gl/h63DbDLL1CCr9a6a9"
                                    target="_blank"
@@ -318,7 +419,7 @@
                                    class="pro-circle-btn bg-map"
                                    title="Google Maps"
                                    aria-label="Ubicación en Google Maps">
-                                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
                                 </a>
                             </div>
                         </div>
@@ -381,7 +482,7 @@
             <p><strong>Conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)</strong></p>
 
             <h4>1. Responsable y Domicilio</h4>
-            <p><strong>La Planchita</strong>, con establecimiento ubicado en <em>[Indica aquí tu dirección comercial o colonia]</em>, es responsable de recabar y proteger sus datos personales.</p>
+            <p><strong>La Planchita</strong>, con establecimiento ubicado en <em>Beethoven 45-Loc D, Peralvillo, Cuauhtémoc, 06220, Ciudad de México, CDMX</em>, es responsable de recabar y proteger sus datos personales.</p>
 
             <h4>2. Datos Recabados y Finalidad</h4>
             <p>Recabamos su nombre completo, teléfono, dirección y referencias únicamente para coordinar la recolección, seguimiento y entrega de sus prendas a domicilio. No compartimos ni transferimos sus datos con terceros.</p>

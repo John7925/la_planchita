@@ -425,19 +425,50 @@ nav a:hover {
     transform: translateY(-1px);
 }
 
-.cobertura-info {
+/* ====================================================
+   RECUADROS UNIFICADOS (Horarios, Cobertura y Canales)
+   ==================================================== */
+.horarios-info,
+.cobertura-info,
+.social-channels-card {
     background: var(--color-light);
     padding: 1.8rem;
     border-radius: 10px;
-    border: 1px dashed var(--color-secondary);
-    margin-bottom: 2rem;
+    border: 1px dashed var(--color-secondary); /* Borde idéntico para todos */
+    margin-bottom: 2rem; /* Separación uniforme */
 }
 
-.cobertura-info h3 {
+.horarios-info h3,
+.cobertura-info h3,
+.social-channels-card h3 {
     color: var(--color-primary);
     margin-top: 0;
     margin-bottom: 0.8rem;
     font-size: 1.1rem;
+}
+
+.lista-horarios {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lista-horarios li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #E5E7EB;
+    font-size: 0.95rem;
+    color: #4B5563;
+}
+
+.lista-horarios li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.lista-horarios li strong {
+    color: var(--color-primary);
 }
 
 .cobertura-texto {
@@ -453,18 +484,7 @@ nav a:hover {
 }
 
 .social-channels-card {
-    background: var(--color-light);
-    padding: 2rem;
-    border-radius: 12px;
-    border: 1px solid #E5E7EB;
-    text-align: center;
-}
-
-.social-channels-card h3 {
-    color: var(--color-primary);
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
+    text-align: center; /* Mantiene centrados los iconos */
 }
 
 .social-channels-card p {

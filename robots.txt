@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://laplanchita-henna.vercel.app/sitemap.xml
