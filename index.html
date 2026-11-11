@@ -132,7 +132,7 @@
         }
 
         *, *::before, *::after { box-sizing: border-box; }
-        html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+        html { scroll-padding-top: 90px; }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -174,7 +174,7 @@
             padding: 5rem 1.5rem;
         }
 
-        .hero-logo { max-width: 160px; height: auto; margin-bottom: 1.5rem; filter: drop-shadow(0 6px 15px rgba(0, 0, 0, 0.35)); }
+        .hero-logo { max-width: 160px; height: auto; margin-bottom: 1.5rem; }
         .hero-brand { font-size: 2.8rem; color: var(--color-white); margin: 0 0 0.5rem; font-weight: 800; letter-spacing: 1px; line-height: 1.2; }
         .hero h1 { font-size: 1.6rem; margin: 0 0 1.5rem; font-weight: 500; color: var(--color-secondary); }
         .hero p:last-child { font-size: 1.15rem; max-width: 750px; margin: 0 auto; color: #E2ECF2; }
@@ -327,7 +327,16 @@
             .servicio-card p, .precio-nota, .equipo-texto, .nosotros-intro, .nosotros-card p, .cobertura-texto, .modal-content p, .footer-desc { text-align: left; }
             .modal-content { padding: 1.5rem; margin: 10% auto; }
             .whatsapp-float { width: 54px; height: 54px; bottom: 20px; right: 20px; font-size: 26px; }
+
+            /* NUEVAS REGLAS: Quitar sombras pesadas en celular */
+            .servicio-card, .precios-container, .info-section, .recoleccion-container, .promo-box {
+                box-shadow: none !important;
+            }
+            .servicio-card:hover {
+                transform: none;
+            }
         }
+        
     </style>
 </head>
 <body>
