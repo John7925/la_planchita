@@ -206,16 +206,19 @@
 
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 2rem; }
 
-        .servicio-card {
+                .servicio-card {
             background: var(--color-white);
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #E5E7EB; /* Borde en lugar de sombra pesada */
             border-top: 4px solid var(--color-secondary);
+            /* Quitamos transition para aligerar el navegador */
         }
 
-        .servicio-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); }
+        .servicio-card:hover {
+            border-color: var(--color-secondary); /* Quitamos el transform y las sombras */
+        }
+        
         .servicio-card img { display: block; width: 100%; height: 210px; object-fit: cover; object-position: center; background-color: #E2ECF2; }
         .servicio-card .content { padding: 1.8rem; }
         .servicio-card h3 { color: var(--color-primary); margin-top: 0; font-size: 1.25rem; }
@@ -225,7 +228,7 @@
             background: var(--color-white);
             padding: 3rem;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            border: 1px solid #E5E7EB; /* Cambiado de sombra a borde */
             margin-bottom: 3rem;
             border-top: 4px solid var(--color-primary);
         }
@@ -243,7 +246,14 @@
 
         .precio-nota { margin-top: 1.5rem; font-size: 0.9rem; color: #4B5563; background-color: var(--color-light); padding: 1rem; border-radius: 8px; border-left: 3px solid var(--color-secondary); text-align: justify; }
 
-        .info-section { background: var(--color-white); padding: 3rem; border-radius: 12px; margin-bottom: 3rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); }
+        .info-section { 
+            background: var(--color-white); 
+            padding: 3rem; 
+            border-radius: 12px; 
+            margin-bottom: 3rem; 
+            border: 1px solid #E5E7EB; /* Cambiado de sombra a borde */
+        }
+        
         .equipo-texto { text-align: justify; max-width: 900px; margin: 0 auto; }
         .nosotros-intro { text-align: justify; max-width: 900px; margin: 0 auto 2rem; }
         .nosotros-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 2rem; margin-top: 2rem; }
@@ -251,12 +261,18 @@
         .nosotros-card { background: var(--color-light); padding: 1.8rem; border-radius: 10px; border-left: 4px solid var(--color-secondary); }
         .nosotros-card h3 { color: var(--color-primary); margin-top: 0; margin-bottom: 0.8rem; font-size: 1.15rem; }
         .nosotros-card p { font-size: 0.95rem; text-align: justify; margin: 0; }
-
         .promo-box { background: linear-gradient(135deg, var(--color-promo-start), var(--color-primary)); color: var(--color-white); padding: 2.5rem; border-radius: 12px; text-align: center; margin-bottom: 3rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); }
         .promo-box h2 { margin-top: 0; font-size: 1.8rem; }
         .promo-texto { margin: 0 auto; max-width: 800px; }
 
-        .recoleccion-container { background: var(--color-white); padding: 3rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); margin-bottom: 3rem; border-top: 4px solid var(--color-primary); }
+        .recoleccion-container { 
+            background: var(--color-white); 
+            padding: 3rem; 
+            border-radius: 12px; 
+            border: 1px solid #E5E7EB; /* Quita el box-shadow y pon este borde */
+            margin-bottom: 3rem; 
+            border-top: 4px solid var(--color-primary); 
+        }
         .recoleccion-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 2.5rem; align-items: start; }
 
         .form-group { margin-bottom: 1.4rem; }
@@ -327,13 +343,10 @@
             .servicio-card p, .precio-nota, .equipo-texto, .nosotros-intro, .nosotros-card p, .cobertura-texto, .modal-content p, .footer-desc { text-align: left; }
             .modal-content { padding: 1.5rem; margin: 10% auto; }
             .whatsapp-float { width: 54px; height: 54px; bottom: 20px; right: 20px; font-size: 26px; }
-
-            /* NUEVAS REGLAS: Quitar sombras pesadas en celular */
-            .servicio-card, .precios-container, .info-section, .recoleccion-container, .promo-box {
+            
+            /* NUEVO: Eliminar cualquier sombra residual en móviles para evitar el TBT */
+            .whatsapp-float, .modal-content, .nosotros-card, .social-channels-card {
                 box-shadow: none !important;
-            }
-            .servicio-card:hover {
-                transform: none;
             }
         }
         
